@@ -12,8 +12,7 @@ A transaction has the following structure:
         "operation": "<string>",
         "asset": "<digital asset description (explained in the next section)>",
         "metadata": {
-            "id": "<uuid>",
-            "data": "<any JSON document>"
+            "<any JSON document>"
         }
     }
 }
@@ -32,9 +31,7 @@ Here's some explanation of the contents of a transaction:
     See the page about [Crypto-Conditions and Fulfillments](crypto-conditions.html).
     - `operation`: String representation of the operation being performed (currently either "CREATE", "TRANSFER" or "GENESIS"). It determines how the transaction should be validated.
 	- `asset`: Definition of the digital asset. See next section.
-    - `metadata`:
-        - `id`: UUID version 4 (random) converted to a string of hex digits in standard form.
-        - `data`: Can be any JSON document. It may be empty in the case of a transfer transaction.
+    - `metadata`: Can be any JSON document.
 
 Later, when we get to the models for the block and the vote, we'll see that both include a signature (from the node which created it). You may wonder why transactions don't have signatures... The answer is that they do! They're just hidden inside the `fulfillment` string of each fulfillment. A creation transaction is signed by the node that created it. A transfer transaction is signed by whoever currently controls or owns it.
 
