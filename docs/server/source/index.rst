@@ -15,5 +15,6 @@ BigchainDB Server Documentation
    clusters-feds/index
    topic-guides/index
    schema/transaction
+   schema/vote
    release-notes
    appendices/index
