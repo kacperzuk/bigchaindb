@@ -656,6 +656,7 @@ class Bigchain(object):
         """Tally the votes on a block, and return the status: valid, invalid, or undecided."""
 
         votes = list(self.backend.get_votes_by_block_id(block_id))
+        votes = [ vote for vote in votes if vote["node_pubkey"] in voters ]
         n_voters = len(voters)
 
         voter_counts = collections.Counter([vote['node_pubkey'] for vote in votes])
